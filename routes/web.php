@@ -22,5 +22,7 @@ Route::resource('category', 'CategoryController');
 
 Route::resource('posts', 'PostsController');
 
+Route::resource('options', 'OptionsController');
+
 Route::get('cat/{id}/', 'PagesController@index');
 
