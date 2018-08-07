@@ -1,0 +1,27 @@
+@extends('layouts.master')
+@section('content')
+
+<h1>Create new post</h1>
+{!! Form::open(['action' => 'PostsController@store','method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
+<div class="form-group">
+    {{Form::label('title','Title')}}
+    {{Form::text('title','',['class'=>'form-control','placeholder'=>'Title'])}}
+</div>
+
+
+<div class="form-group">
+    {{Form::label('category','Category')}}
+    {{Form::select('category', $categories->all(1), $categories->all(0), ['class' => 'form-control'])}}
+
+</div>
+<div class="form-group">
+    {{Form::label('body','Body')}}
+    {{Form::textarea('body','',['class'=>'form-control','placeholder'=>'Body text'])}}
+</div>
+
+<div class="form-group">
+    {{Form::file('cover_image')}}
+</div>
+{{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+{!! Form::close() !!}
+@endsection
